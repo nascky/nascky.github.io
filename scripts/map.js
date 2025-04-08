@@ -66,7 +66,7 @@ async function fetchEvents(userLat, userLng, map) {
     const radius = 100;
 
     try {
-        const response = await fetch(`${ticketmasterApiUrl}?apikey=${apiKey}&latlong=${userLat},${userLng}&radius=${radius}&size=10`);
+        const response = await fetch(`${ticketmasterApiUrl}?apikey=${apiKey}&latlong=${userLat},${userLng}&radius=${radius}&size=35`);
         
         // Check if the response is okay
         if (!response.ok) {
@@ -86,7 +86,6 @@ async function fetchEvents(userLat, userLng, map) {
                 const venueLng = venue.location.longitude;
 
                 //List found events
-                //document.getElementById("events").append(event.name);
                 eventContainer.innerHTML +=
                 event.name +
                 '<br/>' +
