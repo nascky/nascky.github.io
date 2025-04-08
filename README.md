@@ -8,7 +8,10 @@
 ## XML and JavaScript Group Project
 - Event Management Web Application
 
-## Description
+## Project Title
+Event Master
+
+## Project Description
 Event Master is a web application designed to enable individuals to find, create and manage events. It provides an easy-to-use interface and streamlines the process of searching for events to attend and allows users to easily create, manage, and promote events. 
 
 ## Instructions for using the app locally
