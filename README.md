@@ -9,7 +9,7 @@
 - Event Management Web Application
 
 ## Description
-Event Master is a web application designed to enable individuals to find and create, promote and manage events. It provides an easy-to-use interface and streamlines the process of searching for events to attend. Eventbrite is a popular event management and ticketing platform that allows users to create, manage, and promote events. 
+Event Master is a web application designed to enable individuals to find, create and manage events. It provides an easy-to-use interface and streamlines the process of searching for events to attend and allows users to easily create, manage, and promote events. 
 
 ## Instructions for using the app locally
 
