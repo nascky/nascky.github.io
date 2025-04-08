@@ -11,6 +11,9 @@
 ## Project Title
 Event Master
 
+![screenshot](https://github.com/user-attachments/assets/86c0e009-7bc0-416e-b89a-025591ffd84c)
+
+
 ## Project Description
 Event Master is a web application designed to enable individuals to find, create and manage events. It provides an easy-to-use interface and streamlines the process of searching for events to attend and allows users to easily create, manage, and promote events. 
 
