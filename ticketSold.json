@@ -1,0 +1,30 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "name": "Music Festival",
+        "time": "2025-04-10T18:00",
+        "place": "Central Park",
+        "description": "Enjoy a night of live music performances.",
+        "ticketType": "VIP",
+        "ticketPrice": 150.00,
+        "quantity": 3,
+        "totalPrice": 450.00,
+        "image": "images/music-festival.jpg",
+        "status": "Pending" 
+      },
+      {
+        "id": 2,
+        "name": "Tech Conference",
+        "time": "2025-06-15T09:00",
+        "place": "Convention Center",
+        "description": "A conference featuring the latest in tech innovations.",
+        "ticketType": "Standard",
+        "ticketPrice": 100.00,
+        "quantity": 5,
+        "totalPrice": 500.00,
+        "image": "images/tech-conference.jpg",
+        "status": "Completed" 
+      }
+    ]
+}

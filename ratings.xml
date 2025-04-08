@@ -1,0 +1,58 @@
+<testimonials>
+    <testimonial>
+        <name>Elizabeth Aboagye</name>
+        <role>Event Enthusiast</role>
+        <image>https://randomuser.me/api/portraits/women/32.jpg</image>
+        <text>"I discovered so many live gigs through Event Masters. It's my go-to app now."</text>
+        <rating>5</rating>
+    </testimonial>
+    <testimonial>
+        <name>Mike Lee</name>
+        <role>Organizer</role>
+        <image>https://randomuser.me/api/portraits/men/34.jpg</image>
+        <text>The platform helped boost our event attendance. Very effective.</text>
+        <rating>4</rating>
+    </testimonial>
+    <testimonial>
+        <name>Lana Green</name>
+        <role>Vendor</role>
+        <image>https://randomuser.me/api/portraits/women/45.jpg</image>
+        <text>Easy setup for our booth and smooth communication with organizers.</text>
+        <rating>4.5</rating>
+    </testimonial>
+    <testimonial>
+        <name>Jason Wu</name>
+        <role>Attendee</role>
+        <image>https://randomuser.me/api/portraits/men/18.jpg</image>
+        <text>I discovered so many local events I didn’t even know about!</text>
+        <rating>4</rating>
+    </testimonial>
+    <testimonial>
+        <name>Amara Smith</name>
+        <role>Performer</role>
+        <image>https://randomuser.me/api/portraits/women/27.jpg</image>
+        <text>The ticketing and schedule flow was seamless. Great job Event Masters!</text>
+        <rating>5</rating>
+    </testimonial>
+    <testimonial>
+        <name>David Chen</name>
+        <role>Food Vendor</role>
+        <image>https://randomuser.me/api/portraits/men/42.jpg</image>
+        <text>Events were well organized and crowd turnout was amazing.</text>
+        <rating>4</rating>
+    </testimonial>
+    <testimonial>
+        <name>Isla Rivera</name>
+        <role>Student Attendee</role>
+        <image>https://randomuser.me/api/portraits/women/53.jpg</image>
+        <text>I attended a conference that inspired my career path. Thanks!</text>
+        <rating>5</rating>
+    </testimonial>
+    <testimonial>
+        <name>Brian Davis</name>
+        <role>Security Team</role>
+        <image>https://randomuser.me/api/portraits/men/61.jpg</image>
+        <text>Everything was under control. Crowd management went smoothly.</text>
+        <rating>4</rating>
+    </testimonial>
+</testimonials>

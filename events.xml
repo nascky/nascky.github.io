@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+    <event>
+        <id>1</id>
+        <name>Music Festival</name>
+        <time>2025-04-10T18:00</time>
+        <place>Central Park</place>
+        <description>Enjoy a night of live music performances.</description>
+        <ticketType>VIP</ticketType>
+        <image>images/musicF.png</image>
+        <creator>admin@email.com</creator>
+    </event>
+    <event>
+        <id>2</id>
+        <name>Tech Conference</name>
+        <time>2025-05-15T09:00</time>
+        <place>Convention Center</place>
+        <description>Meet industry experts and explore new technologies.</description>
+        <ticketType>General</ticketType>
+        <image>images/techC.png</image>
+        <creator>admin@email.com</creator>
+    </event>
+    <event>
+        <id>3</id>
+        <name>Food Expo</name>
+        <time>2025-06-20T12:00</time>
+        <place>Downtown Arena</place>
+        <description>A showcase of global cuisines and food innovations.</description>
+        <ticketType>VnG</ticketType>
+        <image>images/foodE.png</image>
+        <creator>admin@email.com</creator>
+    </event>
+    <event>
+        <id>4</id>
+        <name>Humber Networking Event</name>
+        <time>2025-05-10T12:00</time>
+        <place>Fourth Floor IGS 59 Hayden St</place>
+        <description>Networking Event for Post Grad students of Humber</description>
+        <ticketType>General</ticketType>
+        <image>images/HumberN.png</image>
+        <creator>admin@email.com</creator>
+    </event>
+</events>

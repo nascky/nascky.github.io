@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Event Portal</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+   
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+        <div id="userGreeting" class="user-dropdown">
+            <a href="signin.html">
+                <button class="sign-in">Sign In</button>
+            </a>
+        </div>
+    </nav>
+
+ 
+    <div class="main-content" id="mainContent">
+        <h1>Contact Us</h1>
+        <p>Have questions or need assistance? Reach out to us—we're here to help!</p>
+        
+       
+        <div class="organizer-filter" style="justify-content: flex-start; margin-top: 40px;">
+            <div class="event-card" style="max-width: 300px;">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: purple; margin-bottom: 15px;"></i>
+                <h3 class="event-title">Visit Us</h3>
+                <p class="event-location">123 Event Street, Event City, EC 45678</p>
+            </div>
+            
+            <div class="event-card" style="max-width: 300px;">
+                <i class="fas fa-phone-alt" style="font-size: 2rem; color: purple; margin-bottom: 15px;"></i>
+                <h3 class="event-title">Call Us</h3>
+                <p class="event-time">General Inquiries: <a href="tel:+1234567890" style="color: purple;">+1 (234) 567-890</a></p>
+            </div>
+            
+            <div class="event-card" style="max-width: 300px;">
+                <i class="fas fa-envelope" style="font-size: 2rem; color: purple; margin-bottom: 15px;"></i>
+                <h3 class="event-title">Email Us</h3>
+                <p class="event-organizer"><a href="mailto:info@eventportal.com" style="color: purple;">info@eventportal.com</a></p>
+            </div>
+        </div>
+
+      
+        <div class="stats" style="margin-top: 40px; text-align: left;">
+            <h2>Send Us a Message</h2>
+            <form style="display: grid; gap: 15px; margin-top: 20px;">
+                <input type="text" placeholder="Your Name" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                <input type="email" placeholder="Your Email" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                <input type="text" placeholder="Subject" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                <textarea placeholder="Your Message" rows="5" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
+                <button type="submit" class="attention-btn">Send Message</button>
+            </form>
+        </div>
+
+       
+        <div class="organizer-filter" style="margin-top: 40px; justify-content: center; background: transparent; box-shadow: none;">
+            <h3 style="width: 100%; text-align: center;">Connect With Us</h3>
+            <div style="display: flex; gap: 20px;">
+                <a href="#"><i class="fab fa-facebook" style="font-size: 1.5rem; color: purple;"></i></a>
+                <a href="#"><i class="fab fa-twitter" style="font-size: 1.5rem; color: purple;"></i></a>
+                <a href="#"><i class="fab fa-instagram" style="font-size: 1.5rem; color: purple;"></i></a>
+                <a href="#"><i class="fab fa-linkedin" style="font-size: 1.5rem; color: purple;"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/organize.js"></script>
+    <script src="scripts/user.js"></script>
+</body>
+</html>

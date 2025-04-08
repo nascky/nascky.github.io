@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div id="userGreeting" class="user-dropdown">
+            <a href="signin.html">
+                <button class="sign-in">Sign In</button>
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <h1>Find Amazing Events</h1>
+    
+        <p>Search for events by name or location.</p>
+
+        <div class="search-container">
+            <input type="text" id="eventName" placeholder="Search by event name...">
+            <input type="text" id="eventLocation" placeholder="Enter location...">
+            <button class="attention-btn" onclick="searchEvents()">Search</button>
+        </div>
+        <p id="location">location</p>
+        <div id="map" style="width: 100%; height: 500px;"></div>
+    </div>
+
+    <div class="container">
+        <div id="eventResults"></div>
+    </div>
+
+    <script src="scripts/event.js"></script>
+    <script src="scripts/events.js"></script>
+    <script src="scripts/user.js"></script>
+</body>
+</html>

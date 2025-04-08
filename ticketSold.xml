@@ -1,0 +1,26 @@
+<events>
+    <event>
+        <id>1</id>
+        <name>Music Festival</name>
+        <time>2025-04-10T18:00</time>
+        <place>Central Park</place>
+        <description>Enjoy a night of live music performances.</description>
+        <ticketType>VIP</ticketType>
+        <ticketPrice>150.00</ticketPrice>
+        <quantity>3</quantity>
+        <totalPrice>450.00</totalPrice>
+        <image>images/music-festival.jpg</image>
+    </event>
+    <event>
+        <id>2</id>
+        <name>Tech Conference</name>
+        <time>2025-06-15T09:00</time>
+        <place>Convention Center</place>
+        <description>A conference featuring the latest in tech innovations.</description>
+        <ticketType>Standard</ticketType>
+        <ticketPrice>100.00</ticketPrice>
+        <quantity>5</quantity>
+        <totalPrice>500.00</totalPrice>
+        <image>images/tech-conference.jpg</image>
+    </event>
+</events>

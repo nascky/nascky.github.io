@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tickets</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="styles/tickets.css">
+    </head>
+    <body>
+        <h2>Please select from the tickets below:</h1>
+        <div id="VIP" class="ticket">
+            <h3>VIP</h3>
+            <div>
+                <div class="selector">
+                    <p id="num">0</p>
+                    <button class="btn">+</button>
+                    <button class="btn">-</button>
+                </div>
+            </div>
+            <hr style="border:1px solid silver">
+            <p>Price: </p>
+            <p>Remaining: </p>
+            <p>Sales End: </p>
+        </div>
+        <div id="EB" class="ticket">
+            <h3>Early Bird</h3>
+            <div>
+                <div class="selector">
+                    <p id="num">0</p>
+                    <button class="btn">+</button>
+                    <button class="btn">-</button>
+                </div>
+            </div>
+            <hr style="border:1px solid silver">
+            <p>Price: </p>
+            <p>Remaining: </p>
+            <p>Sales End: </p>
+        </div>
+        <div id="GA" class="ticket">
+            <h3>General Admission</h3>
+            <div>
+                <div class="selector">
+                    <p id="num">0</p>
+                    <button class="btn">+</button>
+                    <button class="btn">-</button>
+                </div>
+            </div>
+            <hr style="border:1px solid silver">
+            <p>Price: </p>
+            <p>Remaining: </p>
+            <p>Sales End: </p>
+        </div>
+        <div id="LM" class="ticket">
+            <h3>Last Minute</h3>
+            <div>
+                <div class="selector">
+                    <p id="num">0</p>
+                    <button class="btn">+</button>
+                    <button class="btn">-</button>
+                </div>
+            </div>
+            <hr style="border:1px solid silver">
+            <p>Price: </p>
+            <p>Remaining: </p>
+            <p>Sales End: </p>
+        </div>
+        <hr style="border:2px solid black">
+        <div id="payment">
+            <div id="totals">
+                <p>Number of Tickets: </p>
+                <p>Total: </p>
+            </div>
+            <!--Checkout button opens modal for checkout form-->
+            <div id="checkout">
+                <button id="checkoutbtn">Checkout</button>
+            </div>
+        </div>
+        <script src="scripts/tickets.js"></script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Organizer Dashboard</title>
+      <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+      <link rel="stylesheet" href="styles/dashboard.css">
+    </head>
+<body class="protected-page">
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div id="userGreeting" class="user-dropdown">
+    <a href="signin.html">
+        <button class="sign-in">Sign In</button>
+    </a>
+</div>
+</nav>
+
+  <header>
+    <div class="container">
+      <h1>Dashboard</h1>
+    </div>
+  </header>
+ 
+  <div class="sidebar">
+    <span class="material-icons" onclick="window.location.href='dashboard.html'">dashboard</span>
+    <span class="material-icons" onclick="window.location.href='organizer.html'">settings</span>
+    <span class="material-icons" onclick="window.location.href='index.html'">logout</span>
+</div>
+
+  <div class="container">
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <h3>Total Orders</h3>
+        <p id="totalOrders">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>Pending Orders</h3>
+        <p id="pendingOrders">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>Completed Orders</h3>
+        <p id="completedOrders">-</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Revenue</h3>
+        <p id="totalRevenue">-</p>
+      </div>
+    </div>
+    
+    <div class="orders-panel">
+      <div class="panel-header">
+        <h2>Recent Orders</h2>
+        <div>
+          <button id="refreshBtn">Refresh</button>
+          <select id="statusFilter">
+            <option value="all">All Statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+      
+      <table id="ordersTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Event Name</th>
+            <th>Time</th>
+            <th>Place</th>
+            <th>Ticket Type</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+  <script src="/scripts/dashboard.js"></script>
+  <script src="scripts/user.js"></script>
+</body>
+</html>

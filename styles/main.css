@@ -1,0 +1,331 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f2eb;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.nav-links a.active {
+    background-color: rgba(212, 165, 255, 0.1);
+    color: #d4a5ff;
+    transform: translateY(-2px);
+}
+
+
+nav h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: purple;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(212, 165, 255, 0.1);
+    color: #d4a5ff;
+    transform: translateY(-2px);
+}
+
+.sign-in {
+    background: transparent;
+    color: black;
+    border: 2px solid purple;
+    padding: 8px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-in:hover {
+    background-color: purple;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+.main-content {
+    margin: 100px 0 0 50px;
+    max-width: 600px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Button Styles */
+.attention-btn {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.secondary-btn {
+    background-color:  white;
+    color: purple;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.attention-btn:hover {
+    background-color: white;
+    color: purple;
+}
+.secondary-btn:hover {
+    background-color: purple;
+    color: white;
+
+}
+
+.attention-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Stats Section */
+.stats {
+    font-size: 14px;
+    color: #666;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Organizer Filter */
+.organizer-filter {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Filter Button Styling */
+.filter-btn {
+    padding: 10px 20px;
+    background: #eee;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #d4a5ff;
+}
+
+/* Active Filter Button */
+.filter-btn.active {
+    background: #f44336;
+    color: white;
+}
+
+
+/* Event Cards */
+#eventResults {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.event-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover img {
+    transform: scale(1.1);
+}
+
+.event-details {
+    margin-top: 10px;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: purple;
+    margin-bottom: 5px;
+}
+
+.event-organizer {
+    font-size: 1rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.event-time, .event-location, .event-price {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.event-price {
+    font-weight: bold;
+    color: #f44336;
+}
+
+/* Error and Loading States */
+.loading, .error {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.loading {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.error {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        margin: 50px 20px;
+    }
+}
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.user-dropdown-button {
+    background: transparent;
+    border: none;
+    color: #5e2b97;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.user-dropdown-button:hover {
+    background-color: rgba(94, 43, 151, 0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeSlideDown 0.3s ease;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+    color: #333;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+    background-color: #f0f0f5;
+    color: #5e2b97;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

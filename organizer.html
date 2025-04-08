@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/organizer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div id="userGreeting" class="user-dropdown">
+            <a href="signin.html">
+                <button class="sign-in">Sign In</button>
+            </a>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <span class="material-icons" onclick="window.location.href='dashboard.html'">dashboard</span>
+        <span class="material-icons" onclick="window.location.href='organizer.html'">settings</span>
+        <span class="material-icons" onclick="window.location.href='index.html'">logout</span>
+    </div>
+
+  
+    <div class="main-container">
+        <div class="form-container">
+            <h2>Add New Event</h2>
+            <form id="eventForm">
+                <input type="text" id="eventName" placeholder="Event Name" required>
+                <input type="datetime-local" id="eventTime" required>
+                <input type="text" id="eventPlace" placeholder="Location" required>
+                <textarea id="eventDescription" placeholder="Description" rows="3" required></textarea>
+                <select id="ticketType">
+                    <option value="VIP">VIP</option>
+                    <option value="General">General</option>
+                    <option value="VnG">Vip and General</option>
+                </select>
+                <div class="image-upload">
+                    <input type="file" id="eventImage" accept="image/*">
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+                <button type="submit">+ Add Event</button>
+            </form>
+        </div>
+
+      
+        <div class="events-container" id="eventsContainer">
+        </div>
+    </div>
+
+ 
+    <script src="scripts/organizer.js"></script>
+    <script src="scripts/user.js"></script>
+</body>
+</html>

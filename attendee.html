@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Portal</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/attendee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="protected-page">
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div id="userGreeting" class="user-dropdown">
+            <a href="signin.html">
+                <button class="sign-in">Sign In</button>
+            </a>
+        </div>
+    </nav>
+
+    <div class="tabs">
+        <a href="#upcoming">Your Upcoming Events</a>
+        <a href="#past">Past</a>
+    </div>
+
+    <div class="events" id="upcoming">
+        <!-- Upcoming events will be loaded here -->
+    </div>
+
+    <div class="tickets">
+        <a href="events.html">Buy New Tickets</a>
+    </div>
+
+    <h2>Your Created Events</h2>
+    <div class="events" id="createdEvents">
+        <!-- Created events will be loaded here -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            const userTickets = JSON.parse(localStorage.getItem("tickets") || "{}");
+            const email = currentUser?.email;
+
+            if (!email) return;
+
+            // Load registered (ticketed) events from XML
+            if (userTickets[email]) {
+                fetch("events.xml")
+                    .then(response => response.text())
+                    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                    .then(data => {
+                        const events = data.getElementsByTagName("event");
+                        const upcomingContainer = document.getElementById("upcoming");
+                        upcomingContainer.innerHTML = '';
+
+                        Array.from(events).forEach(event => {
+                            const id = event.getElementsByTagName("id")[0].textContent;
+                            if (!userTickets[email].includes(id)) return;
+
+                            const name = event.getElementsByTagName("name")[0].textContent;
+                            const time = event.getElementsByTagName("time")[0].textContent;
+                            const place = event.getElementsByTagName("place")[0].textContent;
+                            const image = event.getElementsByTagName("image")[0].textContent;
+
+                            const card = document.createElement('div');
+                            card.classList.add('event-card');
+                            card.innerHTML = `
+                                <img src="${image}" alt="${name}">
+                                <div class="event-details">
+                                    <h3 class="event-title">${name}</h3>
+                                    <p class="event-time">${new Date(time).toLocaleString()}</p>
+                                    <p class="event-location">${place}</p>
+                                    <button class="secondary-btn" onclick="cancelEvent('${id}')">Cancel Registration</button>
+                                </div>
+                            `;
+                            upcomingContainer.appendChild(card);
+                        });
+                    });
+            }
+
+            // Load events created by the current user
+            const createdEvents = JSON.parse(localStorage.getItem("events") || "[]");
+            const myCreatedEvents = createdEvents.filter(event => event.creator === email);
+            const createdContainer = document.getElementById("createdEvents");
+
+            if (myCreatedEvents.length === 0) {
+                createdContainer.innerHTML = "<p>You haven't created any events yet.</p>";
+            } else {
+                myCreatedEvents.forEach(event => {
+                    const card = document.createElement("div");
+                    card.classList.add("event-card");
+                    card.innerHTML = `
+                        <img src="${event.image}" alt="${event.name}">
+                        <div class="event-details">
+                            <h3 class="event-title">${event.name}</h3>
+                            <p class="event-time">${new Date(event.time).toLocaleString()}</p>
+                            <p class="event-location">${event.place}</p>
+                            <p class="event-description">${event.description}</p>
+                            <p class="event-ticket-type"><strong>Ticket:</strong> ${event.ticketType}</p>
+                        </div>
+                    `;
+                    createdContainer.appendChild(card);
+                });
+            }
+        });
+
+        function cancelEvent(eventId) {
+            if (!confirm("Are you sure you want to cancel this registration?")) return;
+
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            const userTickets = JSON.parse(localStorage.getItem("tickets") || "{}");
+            const email = currentUser?.email;
+
+            if (!userTickets[email]) return;
+
+            userTickets[email] = userTickets[email].filter(id => id !== eventId);
+            localStorage.setItem("tickets", JSON.stringify(userTickets));
+
+            alert("Event registration canceled.");
+            window.location.reload();
+        }
+    </script>
+
+    <script src="scripts/user.js"></script>
+</body>
+</html>

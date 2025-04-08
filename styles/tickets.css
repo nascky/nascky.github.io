@@ -1,0 +1,54 @@
+body {
+    background: #f5f2eb;
+}
+
+.ticket {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: white;
+}
+
+.selector {
+    display: inline;
+}
+
+#checkoutbtn {
+    background-color: blueviolet;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: larger;
+    width: 200px;
+}
+
+#totals {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#checkout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#paymodal {
+    display: none; /* Hidden by default */
+    position:fixed; /* Stay in place */
+    right: 350px;
+    left: 350px;
+    top: 350px;
+    bottom: 350px;
+    width: 30%;
+    height: 30%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgb(245, 242, 235)
+}

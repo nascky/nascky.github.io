@@ -1,0 +1,457 @@
+/* Organizer Styles with Global + Main Styles Integrated */
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f2eb;
+    color: black;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%; /* Use percentage for better responsiveness */
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: purple;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: rgba(212, 165, 255, 0.1);
+    color: #d4a5ff;
+    transform: translateY(-2px);
+}
+
+.sign-in {
+    background: transparent;
+    color: black;
+    border: 2px solid purple;
+    padding: 8px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-in:hover {
+    background-color: purple;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 60px;
+    height: 220px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.material-icons {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.material-icons:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* Main Layout */
+.main-container {
+    flex: 1;
+    padding: 20px 5%; /* Use percentage for better responsiveness */
+    display: flex;
+    position: relative;
+    margin-left: 60px; /* Account for sidebar width */
+}
+
+/* Form Container */
+.form-container {
+    width: 600px;
+    max-width: 100%; /* Make it responsive */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add some space below the form */
+}
+
+.form-container h2 {
+    color: purple;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+input,
+select,
+textarea {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    width: auto; /* Adjust width */
+    padding: 10px 20px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #5e2b97;
+}
+
+.image-upload {
+    margin-top: 15px;
+}
+
+.image-upload input[type="file"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+
+.image-preview {
+    margin-top: 10px;
+    border: 1px dashed #ccc;
+    padding: 10px;
+    text-align: center;
+    color: #777;
+}
+
+.image-preview img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Events List */
+.events-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding-left: 20px; /* Add some spacing from the form */
+}
+
+/* Event Card */
+.event-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.event-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.event-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.event-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn,
+.publish-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.publish-btn {
+    background-color: #2196F3;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+.publish-btn:hover {
+    background-color: #0b7dda;
+}
+
+/* Cancel edit button */
+#cancelEdit {
+    background-color: #9e9e9e;
+    color: white;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+#cancelEdit:hover {
+    background-color: #757575;
+}
+
+/* Utility Buttons (Consistent with main.css) */
+.attention-btn {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-btn {
+    background-color: white;
+    color: purple;
+    border: 1px solid purple;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.attention-btn:hover {
+    background-color: white;
+    color: purple;
+}
+
+.secondary-btn:hover {
+    background-color: purple;
+    color: white;
+}
+
+.attention-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Dropdown (Consistent with main.css) */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.user-dropdown-button {
+    background: transparent;
+    border: none;
+    color: #5e2b97;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.user-dropdown-button:hover {
+    background-color: rgba(94, 43, 151, 0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeSlideDown 0.3s ease;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+    color: #333;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+    background-color: #f0f0f5;
+    color: #5e2b97;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 3%;
+    }
+
+    ul {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .sign-in {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+        margin-right: auto; /* Adjust sign-in button position */
+        margin-left: 10px;
+    }
+
+    .sidebar {
+        left: auto;
+        right: 0;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .main-container {
+        flex-direction: column;
+        padding: 15px 3%;
+        margin-left: 0; /* Remove left margin */
+    }
+
+    .form-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .events-container {
+        padding-left: 0;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .user-dropdown {
+        position: static; /* Adjust dropdown for mobile */
+        margin-left: 10px;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+    }

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="styles/main.css">
+   
+    <style>
+        body {
+            background-color: #f5f2eb;
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+
+        .checkout-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-container h2 {
+            text-align: center;
+            color: purple;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-summary {
+            background-color: #fafafa;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .event-summary p {
+            margin: 0.5rem 0;
+            color: #333;
+        }
+
+        .group label {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .group span {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .field {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #6a1b9a;
+        }
+
+        .outcome {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .success {
+            color: green;
+            display: none;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="protected-page">
+    <div class="checkout-container">
+        <h2>Complete Your Payment</h2>
+        <div class="event-summary" id="eventSummary">
+            <p><strong>Loading event details...</strong></p>
+        </div>
+
+        <form id="payment-form">
+            <input type="hidden" name="token" />
+            <div class="group">
+                <label>
+                    <span>Card number</span>
+                    <div id="card-number-element" class="field">•••• •••• •••• 4242</div>
+                </label>
+                <label>
+                    <span>Expiry date</span>
+                    <div id="card-expiry-element" class="field">12/29</div>
+                </label>
+                <label>
+                    <span>CVC</span>
+                    <div id="card-cvc-element" class="field">123</div>
+                </label>
+                <label>
+                    <span>Postal code</span>
+                    <input id="postal-code" name="postal_code" class="field" placeholder="A1A1A1" required />
+                </label>
+            </div>
+            <div id="card-errors" role="alert"></div>
+            <button type="submit">Pay</button>
+            <div class="outcome">
+                <div class="error"></div>
+                <div class="success">
+                    Stripe token successfully created. Stripe token: <span class="token"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get("eventId");
+
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            if (!currentUser) {
+                alert("You need to be signed in to proceed.");
+                window.location.href = "signin.html";
+                return;
+            }
+
+            if (!eventId) {
+                alert("Invalid event selection.");
+                window.location.href = "events.html";
+                return;
+            }
+
+           
+            fetch("events.xml")
+                .then(response => response.text())
+                .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                .then(data => {
+                    const events = data.getElementsByTagName("event");
+                    for (let event of events) {
+                        if (event.getElementsByTagName("id")[0].textContent === eventId) {
+                            const name = event.getElementsByTagName("name")[0].textContent;
+                            const time = event.getElementsByTagName("time")[0].textContent;
+                            const place = event.getElementsByTagName("place")[0].textContent;
+                            const ticketType = event.getElementsByTagName("ticketType")[0].textContent;
+                            const summary = document.getElementById("eventSummary");
+
+                            summary.innerHTML = `
+                                <p><strong>Event:</strong> ${name}</p>
+                                <p><strong>Date & Time:</strong> ${new Date(time).toLocaleString()}</p>
+                                <p><strong>Location:</strong> ${place}</p>
+                                <p><strong>Ticket Type:</strong> ${ticketType}</p>
+                            `;
+                            break;
+                        }
+                    }
+                });
+
+            // Simulate payment processing
+            const form = document.getElementById("payment-form");
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const userTickets = JSON.parse(localStorage.getItem("tickets") || '{}');
+                const userEmail = currentUser.email;
+
+                if (!userTickets[userEmail]) userTickets[userEmail] = [];
+
+                if (!userTickets[userEmail].includes(eventId)) {
+                    userTickets[userEmail].push(eventId);
+                    localStorage.setItem("tickets", JSON.stringify(userTickets));
+                }
+
+                alert("Payment successful! Ticket added to your upcoming events.");
+                window.location.href = "attendee.html";
+            });
+        });
+    </script>
+</body>
+</html>
