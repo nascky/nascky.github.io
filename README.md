@@ -11,6 +11,10 @@
 ## Description
 Event Master is a web application designed to enable individuals to find and create, promote and manage events. It provides an easy-to-use interface and streamlines the process of searching for events to attend.
 
+## Instructions
+- Sign in
+- 
+
 ## APIs
 - Eventbrite
 - Ticketmaster
