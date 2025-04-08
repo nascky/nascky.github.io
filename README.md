@@ -55,4 +55,5 @@ Below is a step-by-step guide to using the Event Master app, whether you’re at
 - Ticketmaster Discovery API - Provides access to content from variety of sources such as Ticketmaster, FrontGate Tickets, Universe etc. in order to search for events, venues etc.
 - Google API - Enable sign in using Google account
 - HERE Maps API - Enables creation of interactive maps and location services
+- OpenWeather API - Obtain weather information for a given location
 - Stripe - Create payment forms and manage payment transactions
