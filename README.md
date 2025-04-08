@@ -51,9 +51,8 @@ Below is a step-by-step guide to using the Event Master app, whether you’re at
    - You can also edit or delete previously created events with the "Edit" and "Delete" buttons in the organizer page.
 
 ## APIs
-- Eventbrite
-- Ticketmaster
-- Google
-- HERE Maps
-- OpenWeather
-- Stripe
+- Eventbrite API - Enables use of GET requests to pull data such as events from Eventbrite
+- Ticketmaster Discovery API - Provides access to content from variety of sources such as Ticketmaster, FrontGate Tickets, Universe etc. in order to search for events, venues etc.
+- Google API - Enable sign in using Google account
+- HERE Maps API - Enables creation of interactive maps and location services
+- Stripe - Create payment forms and manage payment transactions
