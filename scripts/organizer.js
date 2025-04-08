@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     image,
                     creator: currentUser.email
                 };
-                events.unshift(newEvent);
+                events.unshift(newEvent); // Add new events at the top
             }
 
             localStorage.setItem('events', JSON.stringify(events));
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Load events from XML if needed and sync with local storage
+    // Load events from XML and avoid duplicates
     fetch('events.xml')
         .then(response => response.text())
         .then(str => {
@@ -196,7 +196,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             let existingEvents = JSON.parse(localStorage.getItem('events')) || [];
-            let combined = [...eventsArray, ...existingEvents.filter(e => e.creator === currentUser.email)];
+
+            // Add only XML events that aren't already in localStorage
+            let uniqueNewEvents = eventsArray.filter(newEvent =>
+                !existingEvents.some(existing => existing.id === newEvent.id)
+            );
+
+            let combined = [...existingEvents, ...uniqueNewEvents];
             localStorage.setItem('events', JSON.stringify(combined));
             loadEvents();
         })

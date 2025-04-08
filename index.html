@@ -246,7 +246,7 @@
     
     <script>
         function loadFeaturedEvents() {
-            fetch("events.xml")  // Update this path to your actual XML file location
+            fetch("events.xml")  
                 .then(response => response.text())
                 .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
                 .then(data => {
