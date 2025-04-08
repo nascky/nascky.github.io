@@ -1,5 +1,4 @@
 const hereApiKey = 'ZbwZeZbOjDNYb_kOk5ECz78o3osPeusgBakDHkP3ykk';
-let map;
 
 function initMap() {
     // Get the user location
@@ -18,24 +17,29 @@ function onLocationFound(position) {
     loc.innerHTML = "Latitude: " + userLat + 
                     "<br>Longitude: " + userLng; 
 
-    const platform = new H.service.Platform({
+    var platform = new H.service.Platform({
         apikey: hereApiKey
     });
 
-    const defaultLayers = platform.createDefaultLayers();
+    var defaultLayers = platform.createDefaultLayers();
 
     // Initialize map centered on the user location
-    map = new H.Map(
+    var map = new H.Map(
         document.getElementById('map'),
         defaultLayers.vector.normal.map,
         {
             center: { lat: userLat, lng: userLng },
-            zoom: 12
+            zoom: 12,
+            pixelRatio: window.devicePixelRatio || 1,
         }
     );
 
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+
     // Fetch events based on the user's location
-    fetchEvents(userLat, userLng);
+    fetchEvents(userLat, userLng, map);
 }
 
 function onError(error) {
@@ -56,7 +60,7 @@ function onError(error) {
     }
 }
 
-async function fetchEvents(userLat, userLng) {
+async function fetchEvents(userLat, userLng, map) {
     const ticketmasterApiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json';
     const apiKey = '3SzSUMQvuPOyTVlGKhlV5ATZS7UNY7bO';
     const radius = 100;
@@ -70,7 +74,9 @@ async function fetchEvents(userLat, userLng) {
         }
         
         const data = await response.json();
+        console.log(data);
         const events = data._embedded.events;
+        const eventContainer = document.querySelector('#events');
 
         if (events && events.length > 0) {
             events.forEach(event => {
@@ -80,10 +86,16 @@ async function fetchEvents(userLat, userLng) {
                 const venueLng = venue.location.longitude;
 
                 //List found events
-                document.getElementById("#events").append("<p>"+event.name+"</p>");
+                //document.getElementById("events").append(event.name);
+                eventContainer.innerHTML +=
+                event.name +
+                '<br/>' +
+                'Venue: ' +
+                venueName +
+                '<br/><hr/>'
 
                 // Create a marker for each event on the map
-                const marker = new H.map.Marker({ lat: venueLat, lng: venueLng });
+                var marker = new H.map.Marker({ lat: venueLat, lng: venueLng });
                 map.addObject(marker);
 
                 // Add a click event to the marker to show event details
